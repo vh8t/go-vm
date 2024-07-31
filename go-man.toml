@@ -1,0 +1,4 @@
+[Project]
+name = "go-vm"
+build_dir = "build"
+make = "src/cmd/vm/main.go"
