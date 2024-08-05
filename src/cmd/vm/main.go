@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	// "go-vm/src/internal/assembler"
+	"go-vm/src/internal/assembler"
 	"go-vm/src/internal/cpu"
 	"go-vm/src/internal/memory"
 	"go-vm/src/internal/utils"
-	// "os"
+	"os"
 )
 
 const (
@@ -16,20 +16,15 @@ const (
 
 func main() {
 	// Lexer test WIP
-	/*
-		if len(os.Args) == 2 {
-			contents, err := os.ReadFile(os.Args[1])
-			cpu.Error(err)
+	if len(os.Args) == 2 {
+		contents, err := os.ReadFile(os.Args[1])
+		cpu.Error(err)
 
-			tokens := assembler.Lex(string(contents))
-			for _, tok := range tokens {
-				if tok.Value != "\n" {
-					fmt.Printf("%03d:%03d  $  %s\n", tok.Row, tok.Col, tok.Value)
-				}
-			}
-			return
-		}
-	*/
+		tokens := assembler.Lex(string(contents))
+		bytecode := assembler.Parse(tokens)
+		fmt.Println(bytecode)
+		return
+	}
 
 	// TODO: make assembler and get rid of hardcoded programs
 	program := []byte{}

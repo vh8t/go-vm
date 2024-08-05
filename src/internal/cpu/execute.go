@@ -59,6 +59,8 @@ func (cpu *CPU) executeInstruction() {
 		err = cpu.LoadRegister(uint(reg1), int64(value))
 		Error(err)
 		cpu.pc += 2
+	case PUSH:
+		// TODO: think of a way to push int, byte or address
 	case STORE:
 		bytes, err := cpu.memory.ReadBytes(cpu.pc, 8)
 		Error(err)
